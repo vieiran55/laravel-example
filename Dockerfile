@@ -18,17 +18,19 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN apt install -y nginx
 
-# Instale as dependências do projeto Laravel
+# Instale as dependências do Composer
 RUN composer install --no-scripts --no-autoloader
 
 # Gere o arquivo autoload do Composer
 RUN composer dump-autoload --optimize
 
+
 # Copie o arquivo de exemplo .env e crie uma chave de aplicativo
-RUN cp .env.example .env && php artisan key:generate
+RUN cp .env.example .env
+RUN php artisan key:generate
 
 # Exponha a porta 80 para acesso à aplicação Laravel (se aplicável)
 EXPOSE 80
 
 # Comando padrão para executar o servidor web embutido do Laravel
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD bash -c "composer install && php artisan serve --host=0.0.0.0 --port=80"
