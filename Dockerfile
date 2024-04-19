@@ -24,9 +24,6 @@ RUN composer install --no-scripts --no-autoloader
 # Gere o arquivo autoload do Composer
 RUN composer dump-autoload --optimize
 
-# Execute o script durante a construção da imagem Docker
-RUN setup.sh
-
 # Exponha a porta 80 para acesso à aplicação Laravel (se aplicável)
 EXPOSE 80
 
