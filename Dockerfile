@@ -24,15 +24,8 @@ RUN composer install --no-scripts --no-autoloader
 # Gere o arquivo autoload do Composer
 RUN composer dump-autoload --optimize
 
-
-# Copie o script de setup para o contêiner
-COPY setup.sh /tmp/setup.sh
-
-# Adicione permissões de execução ao script
-RUN chmod +x /tmp/setup.sh
-
 # Execute o script durante a construção da imagem Docker
-RUN /tmp/setup.sh
+RUN setup.sh
 
 # Exponha a porta 80 para acesso à aplicação Laravel (se aplicável)
 EXPOSE 80
