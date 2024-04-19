@@ -1,0 +1,30 @@
+# Arquivos de configuração específicos do ambiente
+.env
+.env.backup
+.env.production
+
+# Arquivos e diretórios gerados pelo Composer
+/vendor
+
+# Arquivos e diretórios gerados pelo NPM ou Yarn
+/node_modules
+/npm-debug.log
+/yarn-error.log
+
+# Arquivos e diretórios gerados pelo Laravel Mix
+/public/build
+/public/hot
+
+# Arquivos e diretórios de cache
+.phpunit.cache
+.phpunit.result.cache
+
+# Arquivos de configuração do ambiente de desenvolvimento
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Logs e arquivos de erro
+/.fleet
+/.idea
+/.vscode
