@@ -7,6 +7,8 @@ RUN apt-get update && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install zip pdo_mysql gd
 
+RUN apt install -y php8.2-mbstring
+
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /var/www/html
 
